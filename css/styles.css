@@ -97,6 +97,42 @@ header nav ul li a:hover {
   object-fit: cover;
 }
 
+.services {
+  padding: 50px 20px;
+  background-color: rgb(245, 245, 245);
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.service-item {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.service-item img {
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.service-item h3 {
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+.service-item p {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
 .contact {
   height: 50vh;
   background-color: rgb(37 71 92);
