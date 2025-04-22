@@ -3,25 +3,43 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Small Business Template</title>
+    <title>Website Template</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <!-- Header -->
     <header>
-      <div class="logo">
+      <div class="logo-name">
         <img src="img/logo.png" alt="Logo">
         <p>Your Business Name</p>
       </div>
-      <nav>
-        <ul>
-          <li><a class="active" href="#hero">HOME</a></li>
-          <li><a href="#about">ABOUT US</a></li>
-          <li><a href="#services">OUR SERVICES</a></li>
-          <li><a href="#contact">CONTACT</a></li>
-        </ul>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <a href="#hero">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#services">SERVICES</a>
+        <a href="#contact">CONTACT</a>
       </nav>
+
+      <!--Mobile Overlay navigation-->
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+          &times;
+        </a>
+        <div class="overlay-content">
+          <a href="#hero">HOME</a>
+          <a href="#about">ABOUT</a>
+          <a href="#services">SERVICES</a>
+          <a href="#contact">CONTACT</a>
+        </div>
+      </div>
+      <i class="fa solid fa-bars" id="hamburgerMenu" onclick="openNav()"></i>
     </header>
 
     <!--Hero Section-->
@@ -86,4 +104,4 @@
     </section>
     <script src="js/script.js"></script>
   </body>
-</html>
+</html> 

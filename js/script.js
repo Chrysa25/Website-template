@@ -1,3 +1,13 @@
+/* Open */
+function openNav() {
+  document.getElementById("myNav").style.display = "block";
+}
+
+/* Close */
+function closeNav() {
+  document.getElementById("myNav").style.display = "none";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");
   const aboutSection = document.querySelector("#about");
@@ -36,3 +46,4 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 sections.forEach((section) => observer.observe(section));
+

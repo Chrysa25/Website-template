@@ -11,66 +11,85 @@ body {
 }
 
 header {
-  background-color: rgba(0, 0, 0, 0,5);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  z-index: 100;
-}
-
-header.blur {
-  backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.7);
-  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0, 15px;
+  z-index: 1000;
+  color: white;
 }
 
-.logo {
+.logo-name {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.logo img {
-  height: 40px;
-  margin-right: 10px;
+.logo-name img {
+  width: 40px;
 }
 
 .logo p {
-  color: rgb(112, 128, 144);
-  font-size: 20px;
-  font-weight: bold;
-}
-
-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 60px;
+  color: rgb(166, 176, 186);
+  font-size: 18px;
   margin: 0;
-  padding: 0;
-}
-
-header nav ul li a {
-  font-family: Arial, sans-serif;
-  text-decoration: none;
-  font-size: 16px;
-  color: rgb(180, 180, 180);
   font-weight: bold;
-  padding: 5px 10px;
-  cursor: pointer;
-  transition: color 0.3s;
 }
 
-header nav ul li a:hover {
-  color: rgb(255, 255, 255);
+.desktop-nav {
+  display: none;
 }
 
-header nav ul li a.active {
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  display: none;
+}
+
+.overlay-content {
+  position: relative;
+  top: 30%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.overlay-content a {
   color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+}
+
+#hamburgerMenu {
+  display: block;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: rgb(241, 241, 241);
 }
 
 .hero {
@@ -92,48 +111,65 @@ header nav ul li a.active {
   color: white;
 }
 
+.hero h1 {
+  font-size: 32px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
 .about {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  flex-direction: column;
+  height: auto;
   background-color: rgb(112, 128, 144);
   color: white;
-  padding: 0;
-  margin: 0;
+  padding: 20px;
   box-sizing: border-box;
 }
 
 .about-content {
   display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 100%;
-  margin: 0 auto;
+  gap: 20px;
 }
 
 .text {
   flex: 1;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 50px;
+  padding: 20px;
   box-sizing: border-box;
+}
+
+.text h2 {
+  font-size: 30px;
+}
+
+.text p {
+  font-size: 18px;
 }
 
 .image {
   flex: 1;
-  height: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .image img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 }
 
 .services {
-  padding: 40px 20px;
+  padding: 30px 15px;
   background-color: rgb(245, 245, 245);
-  height: 100vh;
 }
 
 .services h3 {
@@ -145,8 +181,8 @@ header nav ul li a.active {
 
 .services-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
 .service-item {
@@ -158,7 +194,7 @@ header nav ul li a.active {
 }
 
 .service-item img {
-  width: 250px;
+  width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
@@ -166,7 +202,7 @@ header nav ul li a.active {
 
 .service-item h3 {
   margin-top: 20px;
-  font-size: 40px;
+  font-size: 24px;
 }
 
 .service-item p {
@@ -175,21 +211,111 @@ header nav ul li a.active {
 }
 
 .contact {
-  height: 50vh;
   background-color: rgb(37 71 92);
   color: rgb(186, 190, 200);
-  padding: 40px;
+  padding: 30px 15px;
 }
 
 .contact h2 {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: bold;
 }
 
 .contact p {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .social-icons a {
-  margin-right: 20px;
+  margin-right: 15px;
+}
+
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero p {
+    font-size: 22px;
+  }
+
+  .about-content {
+    flex-direction: row;
+  }
+
+  .services-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .desktop-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .desktop-nav a {
+    text-decoration: none;
+    color: #aaa;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s;
+  }
+
+  .desktop-nav a:hover,
+  .desktop-nav a.active {
+    color: white;
+  }
+
+  /* Hide overlay and hamburger */
+  #myNav,
+  #hamburgerMenu {
+    display: none;
+  }
+  
+  
+  .overlay {
+    display: flex;
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .overlay-content {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    position: static;
+    top: auto;
+    width: auto;
+    text-align: right;
+  }
+
+  .overlay-content a {
+    display: block;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    font-size: 16px;
+    color: rgb(180, 180, 180);
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .overlay-content a.active {
+    color: white;
+  }
+
+  .overlay-content a.active {
+    color: white;
+  }
+
+  .services-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
