@@ -1,49 +1,65 @@
-/* Open */
-function openNav() {
-  document.getElementById("myNav").style.display = "block";
+function toggleNav() {
+  const overlay = document.getElementById("myNav");
+  const icon = document.getElementById("menuIcon");
+  const isOpen = overlay.style.width === "100%";
+
+  if (isOpen) {
+    overlay.style.width = "0";
+    document.body.classList.remove("menu-open");
+    icon.classList.remove("fa-xmark");
+    icon.classList.add("fa-bars");
+  } else {
+    overlay.style.width = "100%";
+    document.body.classList.add("menu-open");
+    icon.classList.remove("fa-bars");
+    icon.classList.add("fa-xmark");
+  }
 }
 
-/* Close */
-function closeNav() {
-  document.getElementById("myNav").style.display = "none";
-}
+//Active Nav Bar
+// Get all navigation links
+const navLinks = document.querySelectorAll('.desktop-nav a');
 
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.querySelector("header");
-  const aboutSection = document.querySelector("#about");
-  const servicesSection = document.querySelector("#services");
+// Function to handle active link
+function setActiveLink() {
+  let currentSection = '';
 
-  window.addEventListener("scroll", () => {
-    const aboutRect = aboutSection.getBoundingClientRect();
-    const servicesRect = servicesSection.getBoundingClientRect();
+  // Loop through each section to find the active one
+  navLinks.forEach(link => {
+    const section = document.querySelector(link.getAttribute('href'));
 
-    if (aboutRect.top <= 1 || servicesRect.top <= 1) {
-      header.classList.add("blur");
-    } else {
-      header.classList.remove("blur");
-    }
-  });
-});
+    if (section) {
+      const sectionTop = section.offsetTop;
+      const sectionBottom = sectionTop + section.offsetHeight;
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav ul li a");
-
-const observerOptions = {
-  root: null,
-  threshold: 0.5,
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    const navLink = document.querySelector(`nav ul li a[href="#${entry.target.id}"]`);
-    if (entry.isIntersecting) {
-      navLinks.forEach((link) => link.classList.remove("active"));
-      if (navLink) {
-        navLink.classList.add("active");
+      // Check if the scroll position is within the section
+      if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+        currentSection = link.getAttribute('href');
       }
     }
   });
-}, observerOptions);
 
-sections.forEach((section) => observer.observe(section));
+  // Remove active class from all links
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+  });
 
+  // Add active class to the link corresponding to the section in view
+  if (currentSection) {
+    document.querySelector(`.desktop-nav a[href="${currentSection}"]`).classList.add('active');
+  }
+}
+
+// Listen for scroll events
+window.addEventListener('scroll', setActiveLink);
+
+// Run on page load to set the initial active section
+window.addEventListener('load', setActiveLink);
+
+// Close overlay on Escape key press
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    toggleNav();
+  }
+});

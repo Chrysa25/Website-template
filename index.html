@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive business website template with hero, services, and contact sections.">
     <title>Website Template</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,32 +15,31 @@
   <body>
     <!-- Header -->
     <header>
-      <div class="logo-name">
+      <a href="#hero" class="logo-name">
         <img src="img/logo.png" alt="Logo">
         <p>Your Business Name</p>
-      </div>
+      </a>
 
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
         <a href="#hero">HOME</a>
-        <a href="#about">ABOUT</a>
-        <a href="#services">SERVICES</a>
+        <a href="#about">ABOUT US</a>
+        <a href="#services">OUR SERVICES</a>
         <a href="#contact">CONTACT</a>
       </nav>
 
-      <!--Mobile Overlay navigation-->
+      <!--Mobile Overlay Navigation-->
       <div id="myNav" class="overlay">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
-          &times;
-        </a>
         <div class="overlay-content">
-          <a href="#hero">HOME</a>
-          <a href="#about">ABOUT</a>
-          <a href="#services">SERVICES</a>
-          <a href="#contact">CONTACT</a>
+          <a href="#hero" onclick="toggleNav()">HOME</a>
+          <a href="#about" onclick="toggleNav()">ABOUT US</a>
+          <a href="#services" onclick="toggleNav()">OUR SERVICES</a>
+          <a href="#contact" onclick="toggleNav()">CONTACT</a>
         </div>
       </div>
-      <i class="fa solid fa-bars" id="hamburgerMenu" onclick="openNav()"></i>
+      <button id="hamburgerMenu" onclick="toggleNav()" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars" id="menuIcon"></i>
+      </button>
     </header>
 
     <!--Hero Section-->
@@ -47,15 +47,16 @@
       <div class="hero-content">
         <h1>Your Business Name</h1>
         <p>Your trusted partner in excellence.</p>
+        <a href="#services" class="btn-cta">Explore Services</a>
       </div>
     </section>
 
-    <!--About us Section -->
+    <!--About Us Section -->
     <section id="about" class="about">
       <div class="about-content">
         <div class="text">
           <h2>About Us</h2>
-          <p>A paragraph of text.</p>
+          <p>Share your company’s/individual story here. Highlight your mission, vision and values.</p>
         </div>
         <div class="image">
             <img src="img/about.jpg" alt="About Us">
@@ -85,7 +86,7 @@
         <div class="service-item">
           <img src="img/service4.jpg" alt="Content Writing">
           <h3>Content Writing</h3>
-          <p>Descriptiion</p>
+          <p>Engaging and well-crafted content tailored to your brand’s voice. From blogs to website copy, we deliver words that connect and convert.</p>
         </div>
       </div>
     </section>
@@ -93,15 +94,43 @@
     <!--Contact Section-->
     <section id="contact" class="contact">
       <h2>Contact</h2>
-      <p>Address: 123 Main Street, Your City</p>
-      <p>Email: contact@business.com</p>
-      <p>Phone: +123 456 7890</p>
-      <div class="social-icons">
-        <a href="#"><i class="fa-brands fa-facebook" style="color: #babec8;"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter" style="color: #babec8;"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram" style="color: #babec8;"></i></a>
+      <div class="contact-container">
+        <!-- Left Side -->
+        <div class="contact-info">
+          <p>Address: 123 Main Street, Your City</p>
+          <p>Email: contact@business.com</p>
+          <p>Phone: +123 456 7890</p>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook" style="color: #babec8;"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter" style="color: #babec8;"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram" style="color: #babec8;"></i></a>
+          </div>
+        </div>
+    
+        <!-- Right Side (Form) -->
+        <form action="https://formsubmit.co/your@email.com" method="POST" class="contact-form">
+          <input type="hidden" name="_subject" value="New message from your website!">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="box">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
       </div>
-    </section>
+    </section>    
     <script src="js/script.js"></script>
   </body>
 </html> 
