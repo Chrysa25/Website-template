@@ -1,0 +1,19 @@
+Logo: Creative mind icon: https://icons8.com/icon/Wl5YdufZI4K2/creative-mind
+from icons8
+
+Home Section: Photo by Kevin Matos on Unsplash
+
+About Section: Photo by Scott Graham on Unsplash.
+
+Services Section:  
+1.Photo by Campaign Creators on Unsplash.
+2.Photo by Nathan da Silva on Unsplash.
+3.Photo by UX Store on Unsplash.
+4.Photo by Kenny Eliason on Unsplash.
+
+Note: 
+All images and icons used in this template are for demonstration purposes only.
+They are not included for resale and must be replaced by the end user.
+Full credit is given to the original creators as listed above.
+Images were sourced from Unsplash (https://unsplash.com) 
+and the Logo from Icons8 (https://icons8.com) under their respective free-use licenses.
